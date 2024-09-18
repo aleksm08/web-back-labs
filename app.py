@@ -6,6 +6,61 @@ def not_found(err):
     return "нет такой страницы", 404
 
 @app.route("/")
+@app.route("/index")
+def index():
+    lab1_url = url_for('lab1')  # Ссылка на первую лабораторную (/lab1/oak)
+    return '''
+<!doctype html>
+<html>
+    <head>
+        <title>НГТУ, ФБ, Лабораторные работы</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                background-color: #00796b;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+            footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 10px;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+            }
+            li {
+                margin: 20px;
+                text-align: center;
+            }
+            li a {
+                text-decoration: none;
+                color: #00796b;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных</h1>
+        </header>
+        <li>
+            <a href="''' + lab1_url + '''">Лабораторная работа №1</a>
+        </li>
+        <footer>
+            Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024
+        </footer>
+    </body>
+</html>
+'''
+
 @app.route("/lab1/web")
 def web():
     return """<!doctype html>
