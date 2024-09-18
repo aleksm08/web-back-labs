@@ -1,11 +1,33 @@
 body {
-    background-color: #f4f4f9; /* Светлый фон для всего экрана */
-    font-family: 'Arial', sans-serif; /* Выбор шрифта для текста */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    text-align: center; /* Центрирование текста */
 }
-
+header {
+    background-color: #00796b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+li {
+    margin: 20px;
+    text-align: center;
+}
+li a {
+    text-decoration: none;
+    color: #00796b;
+    font-size: 18px;
+}
 /* Заголовок будет фиксирован вверху страницы */
 h1 {
     color: #333333;
