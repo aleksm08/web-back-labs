@@ -2,33 +2,43 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
-    padding: 0;
+    box-sizing: border-box;
 }
+
 header {
     background-color: #00796b;
     color: white;
     padding: 20px;
     text-align: center;
 }
+
+main {
+    min-height: 100vh; /* Минимальная высота контента */
+    padding-bottom: 60px; /* Отступ под контентом, чтобы не перекрывался подвалом */
+    padding: 20px; /* Отступ от краев */
+}
+
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
     width: 100%;
+    position: relative; /* Убрали фиксированное позиционирование */
     bottom: 0;
 }
+
 li {
     margin: 20px;
     text-align: center;
 }
+
 li a {
     text-decoration: none;
     color: #00796b;
     font-size: 18px;
 }
-/* Заголовок будет фиксирован вверху страницы */
+
 h1 {
     color: #333333;
     font-size: 36px;
@@ -36,8 +46,10 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* Стили для изображения */
+/* Центровка изображений */
 img {
+    display: block;
+    margin: 0 auto;
     width: 80%;
     max-width: 800px; 
     height: auto;

@@ -28,9 +28,11 @@ def index():
         <header>
             <h1>НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных</h1>
         </header>
-        <li>
-            <a href="''' + lab1_url + '''">Лабораторная работа №1</a>
-        </li>
+        <main>
+            <li>
+                <a href="''' + lab1_url + '''">Лабораторная работа №1</a>
+            </li>
+        </main>
         <footer>
             Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024
         </footer>
@@ -50,14 +52,16 @@ def lab1():
         <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
     </head>
     <body>
-        <h1>Лабораторная 1</h1>
-        <p>
-            Flask — фреймворк для создания веб-приложений на языке программирования Python, 
-            использующий набор инструментов Werkzeug, а также шаблонизатор Jinja2. 
-            Относится к категории так называемых микрофреймворков — минималистичных каркасов 
-            веб-приложений, сознательно предоставляющих лишь самые базовые возможности.
-        </p>
-        <p><a href="''' + home_url + '''">Вернуться на главную</a></p>
+        <main>
+            <h1>Лабораторная 1</h1>
+            <p>
+                Flask — фреймворк для создания веб-приложений на языке программирования Python, 
+                использующий набор инструментов Werkzeug, а также шаблонизатор Jinja2. 
+                Относится к категории так называемых микрофреймворков — минималистичных каркасов 
+                веб-приложений, сознательно предоставляющих лишь самые базовые возможности.
+            </p>
+            <p><a href="''' + home_url + '''">Вернуться на главную</a></p>
+        </main>
     </body>
 </html>
 '''
@@ -73,8 +77,10 @@ def web():
             <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
         </head>
             <body>
-                <h1>web-сервер на Flask</h1>
-                <a href='/author'>author</a>
+                <main>
+                    <h1>web-сервер на Flask</h1>
+                    <a href='/author'>author</a>
+                </main>
             </body>
         </html>""", 200, {
             "X-Server": "sample",
@@ -94,10 +100,12 @@ def author():
                 <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
             </head>
             <body>
-                <p>Студент: """ + name + """</p>
-                <p>Группа: """ + group + """</p>
-                <p>Факультет: """ + faculty + """</p>
-                <a href='/lab1/web'>web</a>
+                <main>
+                    <p>Студент: """ + name + """</p>
+                    <p>Группа: """ + group + """</p>
+                    <p>Факультет: """ + faculty + """</p>
+                    <a href='/lab1/web'>web</a>
+                </main>
             </body>
         </html>"""
 
@@ -112,8 +120,10 @@ def oak():
 </head>
 <html>
     <body>
-        <h1>Дуб</h1>
-        <img src=" ''' + path + ''' ">
+        <main>
+            <h1>Дуб</h1>
+            <img src=" ''' + path + ''' ">
+        </main>
     </body>
 </html>
 '''
@@ -132,7 +142,9 @@ def bad_request(err):
         <header>
             <h1>Ошибка 400</h1>
         </header>
-        <p>Неверный запрос (Bad Request)</p>
+        <main>
+            <p>Неверный запрос (Bad Request)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -154,7 +166,9 @@ def unauthorized(err):
         <header>
             <h1>Ошибка 401</h1>
         </header>
-        <p>Неавторизованный доступ (Unauthorized)</p>
+        <main>
+            <p>Неавторизованный доступ (Unauthorized)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -176,7 +190,9 @@ def payment_required(err):
         <header>
             <h1>Ошибка 402</h1>
         </header>
-        <p>Необходима оплата (Payment Required)</p>
+        <main>
+            <p>Необходима оплата (Payment Required)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -199,7 +215,9 @@ def forbidden(err):
         <header>
             <h1>Ошибка 403</h1>
         </header>
-        <p>Доступ запрещен (Forbidden)</p>
+        <main>
+            <p>Доступ запрещен (Forbidden)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -221,8 +239,10 @@ def not_found(err):
         <header>
             <h1>Ошибка 404</h1>
         </header>
-        <p>нет такой страницы, больше сюда не заходи</p>
-        <img src="{path}" alt="нет такой страницы">
+        <main>
+            <p>вы кто такие, я вас не звал, идите дальше</p>
+            <img src="{path}" alt="нет такой страницы">
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -244,7 +264,9 @@ def method_not_allowed(err):
         <header>
             <h1>Ошибка 405</h1>
         </header>
-        <p>Метод не разрешен (Method Not Allowed)</p>
+        <main>
+            <p>Метод не разрешен (Method Not Allowed)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -266,7 +288,9 @@ def im_a_teapot(err):
         <header>
             <h1>Ошибка 418</h1>
         </header>
-        <p>Я чайник (I'm a teapot)</p>
+        <main>
+            <p>Я чайник (I'm a teapot)</p>
+        </main>
         <footer>
             <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
         </footer>
@@ -289,8 +313,10 @@ def counter():
         <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
     </head>
     <body>
-        <div>Сколько раз вы сюда заходили: ''' + str(count) + '''</div>
-        <a href="''' + reset_link + '''">Сбросить счётчик</a>
+        <main>
+            <div>Сколько раз вы сюда заходили: ''' + str(count) + '''</div>
+            <a href="''' + reset_link + '''">Сбросить счётчик</a>
+        </main>
     </body>
 </html>
 '''
@@ -307,9 +333,11 @@ def reset_counter():
         <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
     </head>
     <body>
-        <h1>Счётчик сброшен!</h1>
-        <p>Счётчик теперь равен: ''' + str(count) + '''</p>
-        <a href="''' + url_for('counter') + '''">Назад к счётчику</a>
+        <main>
+            <h1>Счётчик сброшен!</h1>
+            <p>Счётчик теперь равен: ''' + str(count) + '''</p>
+            <a href="''' + url_for('counter') + '''">Назад к счётчику</a>
+        </main>
     </body>
 </html>
 '''
@@ -329,8 +357,10 @@ def created():
         <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
     </head>
     <body>
-        <h1>Создано успешно</h1>
-        <div><i>Что-то создано...</i></div>
+        <main>    
+            <h1>Создано успешно</h1>
+            <div><i>Что-то создано...</i></div>
+        </main>
     </body>
 </html>
 ''', 201
