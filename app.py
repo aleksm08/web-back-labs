@@ -58,11 +58,28 @@ count = 0
 def counter():
     global count
     count += 1
+    reset_link = url_for('reset_counter')
     return '''
 <!doctype html>
 <html>
     <body>
-        Сколько раз вы сюда заходили: ''' + str(count) + '''
+        <div>Сколько раз вы сюда заходили: ''' + str(count) + '''</div>
+        <a href="''' + reset_link + '''">Сбросить счётчик</a>
+    </body>
+</html>
+'''
+
+@app.route('/lab1/counter/reset')
+def reset_counter():
+    global count
+    count = 0
+    return '''
+<!doctype html>
+<html>
+    <body>
+        <h1>Счётчик сброшен!</h1>
+        <p>Счётчик теперь равен: ''' + str(count) + '''</p>
+        <a href="''' + url_for('counter') + '''">Назад к счётчику</a>
     </body>
 </html>
 '''
