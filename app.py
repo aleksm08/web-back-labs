@@ -61,6 +61,35 @@ def index():
 </html>
 '''
 
+@app.route('/lab1')
+def lab1():
+    home_url = url_for('index')  # Ссылка на корень сайта (/)
+    return '''
+<!doctype html>
+<html>
+    <head>
+        <title>Лабораторная 1</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Лабораторная 1</h1>
+        <p>
+            Flask — фреймворк для создания веб-приложений на языке программирования Python, 
+            использующий набор инструментов Werkzeug, а также шаблонизатор Jinja2. 
+            Относится к категории так называемых микрофреймворков — минималистичных каркасов 
+            веб-приложений, сознательно предоставляющих лишь самые базовые возможности.
+        </p>
+        <p><a href="''' + home_url + '''">Вернуться на главную</a></p>
+    </body>
+</html>
+'''
+
 @app.route("/lab1/web")
 def web():
     return """<!doctype html>
