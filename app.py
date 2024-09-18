@@ -7,11 +7,6 @@ class PaymentRequired(HTTPException):
     
 app = Flask(__name__)
 
-@app.errorhandler(404)
-def not_found(err):
-    styles_path = url_for("static", filename="lab1.css")
-    return "нет такой страницы", 404
-
 @app.route("/")
 @app.route("/index")
 def index():
@@ -71,10 +66,10 @@ def lab1():
 @app.route("/lab1/web")
 def web():
     styles_path = url_for("static", filename="lab1.css")
-    return """<!doctype html>
+    return f"""<!doctype html>
         <html>
         <head>
-            <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
+            <link rel="stylesheet" type="text/css" href="{styles_path}">
         </head>
             <body>
                 <main>
@@ -94,10 +89,10 @@ def author():
     group = 'ФБИ-22'
     faculty = 'ФБ'
 
-    return """<!doctype html>
+    return f"""<!doctype html>
         <html>
             <head>
-                <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
+                <link rel="stylesheet" type="text/css" href="{styles_path}">
             </head>
             <body>
                 <main>
@@ -393,6 +388,16 @@ def error_405():
 @app.route('/error418')
 def error_418():
     abort(418)  # Вызов ошибки 418
+
+@app.route('/error500')
+def error_500():
+    result = 1 / 0  # Это вызовет ZeroDivisionError
+    return str(result)
+
+# Перехватчик для ошибки 500 с сообщением на русском языке
+@app.errorhandler(500)
+def internal_server_error(err):
+    return "Ошибка 500: Внутренняя ошибка сервера. Пожалуйста, повторите попытку позже.", 500
 
 if __name__ == '__main__':
     app.run(debug=True)
