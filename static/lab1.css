@@ -28,7 +28,7 @@ footer {
     bottom: 0;
 }
 
-li {
+li ul {
     margin: 20px;
     text-align: center;
 }
