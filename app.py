@@ -29,7 +29,7 @@ def index():
             </li>
         </main>
         <footer>
-            Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024
+            Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024
         </footer>
     </body>
 </html>
@@ -39,12 +39,30 @@ def index():
 def lab1():
     styles_path = url_for("static", filename="lab1.css")
     home_url = url_for('index')  # Ссылка на корень сайта (/)
-    return '''
+    web_url = url_for('web')  # Ссылка на /lab1/web
+    author_url = url_for('author')  # Ссылка на /lab1/author
+    oak_url = url_for('oak')  # Ссылка на /lab1/oak
+    story_url = url_for('story')  # Ссылка на /lab1/story
+    counter_url = url_for('counter')  # Ссылка на /lab1/counter
+    reset_counter_url = url_for('reset_counter')  # Ссылка на /lab1/counter/reset
+    created_url = url_for('created')  # Ссылка на /lab1/created
+    info_url = url_for('info')  # Ссылка на /lab1/info
+    error400_url = url_for('error_400')  # Ссылка на /error400
+    error401_url = url_for('error_401')  # Ссылка на /error401
+    error402_url = url_for('error_402')  # Ссылка на /error402
+    error403_url = url_for('error_403')  # Ссылка на /error403
+    error404_url = url_for('error_404')  # Ссылка на /error404
+    error405_url = url_for('error_405')  # Ссылка на /error405
+    error418_url = url_for('error_418')  # Ссылка на /error418
+    error500_url = url_for('error_500')  # Ссылка на /error500
+
+
+    return f'''
 <!doctype html>
 <html>
     <head>
         <title>Лабораторная 1</title>
-        <link rel="stylesheet" type="text/css" href="''' + styles_path + '''">
+        <link rel="stylesheet" type="text/css" href="{styles_path}">
     </head>
     <body>
         <main>
@@ -55,7 +73,27 @@ def lab1():
                 Относится к категории так называемых микрофреймворков — минималистичных каркасов 
                 веб-приложений, сознательно предоставляющих лишь самые базовые возможности.
             </p>
-            <p><a href="''' + home_url + '''">Вернуться на главную</a></p>
+            <p><a href="{home_url}">Вернуться на главную</a></p>
+            <h2>Список роутов</h2>
+            <ul>
+                <li><a href="{home_url}">Главная (/) или (/index)</a></li>
+                <li><a href="{web_url}">Web-сервер на Flask (/lab1/web)</a></li>
+                <li><a href="{author_url}">Автор (/lab1/author)</a></li>
+                <li><a href="{oak_url}">Дуб (/lab1/oak)</a></li>
+                <li><a href="{story_url}">История (/lab1/story)</a></li>
+                <li><a href="{counter_url}">Счётчик (/lab1/counter)</a></li>
+                <li><a href="{reset_counter_url}">Сбросить счётчик (/lab1/counter/reset)</a></li>
+                <li><a href="{created_url}">Создано (/lab1/created)</a></li>
+                <li><a href="{info_url}">Информация (/lab1/info)</a></li>
+                <li><a href="{error400_url}">Ошибка 400 (/error400)</a></li>
+                <li><a href="{error401_url}">Ошибка 401 (/error401)</a></li>
+                <li><a href="{error402_url}">Ошибка 402 (/error402)</a></li>
+                <li><a href="{error403_url}">Ошибка 403 (/error403)</a></li>
+                <li><a href="{error404_url}">Ошибка 404 (/error404)</a></li>
+                <li><a href="{error405_url}">Ошибка 405 (/error405)</a></li>
+                <li><a href="{error418_url}">Ошибка 418 (/error418)</a></li>
+                <li><a href="{error500_url}">Ошибка 500 (/error500)</a></li>
+            </ul>
         </main>
     </body>
 </html>
@@ -86,7 +124,7 @@ def web():
 def author():
     styles_path = url_for("static", filename="lab1.css")
     name = 'Мартынов Александр Дмитриевич'
-    group = 'ФБИ-22'
+    group = 'ФБИ-24'
     faculty = 'ФБ'
 
     return f"""<!doctype html>
@@ -141,7 +179,7 @@ def bad_request(err):
             <p>Неверный запрос (Bad Request)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -165,7 +203,7 @@ def unauthorized(err):
             <p>Неавторизованный доступ (Unauthorized)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -189,7 +227,7 @@ def payment_required(err):
             <p>Необходима оплата (Payment Required)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -214,7 +252,7 @@ def forbidden(err):
             <p>Доступ запрещен (Forbidden)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -239,7 +277,7 @@ def not_found(err):
             <img src="{path}" alt="нет такой страницы">
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -263,7 +301,7 @@ def method_not_allowed(err):
             <p>Метод не разрешен (Method Not Allowed)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
@@ -287,11 +325,49 @@ def im_a_teapot(err):
             <p>Я чайник (I'm a teapot)</p>
         </main>
         <footer>
-            <p>Мартынов Александр Дмитриевич, ФБИ-22, 3 курс, 2024</p>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
         </footer>
     </body>
 </html>
 ''', 418
+
+@app.route('/lab1/story')
+def story():
+    styles_path = url_for("static", filename="lab1.css")
+    image_path = url_for("static", filename="story_image.jpg")
+
+    title = "Интересная история"
+    paragraph1 = "Это первый абзац истории. Он рассказывает о начале приключения, где главный герой отправляется в путешествие по незнакомым землям."
+    paragraph2 = "Во втором абзаце рассказывается о том, как герой встретил на своем пути необычных существ, которые помогли ему разгадать старинные загадки."
+    paragraph3 = "Третий абзац подводит итог приключениям героя. Он возвращается домой, обогащенный новым опытом и знаниями, и делится своими историями с друзьями."
+
+    return f'''
+<!doctype html>
+<html lang="ru">
+    <head>
+        <title>{title}</title>
+        <link rel="stylesheet" type="text/css" href="{styles_path}">
+    </head>
+    <body>
+        <header>
+            <h1>{title}</h1>
+        </header>
+        <main>
+            <p>{paragraph1}</p>
+            <p>{paragraph2}</p>
+            <p>{paragraph3}</p>
+            <img src="{image_path}" alt="Картинка для истории" style="width: 50%; margin-top: 20px;">
+        </main>
+        <footer>
+            <p>Мартынов Александр Дмитриевич, ФБИ-24, 3 курс, 2024</p>
+        </footer>
+    </body>
+</html>
+''', 200, {
+        'Content-Language': 'ru',  # Устанавливаем заголовок Content-Language
+        'X-Custom-Header': 'MyCustomValue',  # Нестандартный заголовок 1
+        'X-Another-Custom-Header': 'AnotherValue'  # Нестандартный заголовок 2
+    }
 
 count = 0
 
