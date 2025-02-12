@@ -16,7 +16,25 @@
     </main>
 
     <footer>
-        &copy; {{name}}, ФБИ-24, 3 курс, 2024
+        &copy;
+        {% if name %}
+        {{ name }},
+    {% else %}
+        Аноним,
+    {% endif %}
+
+    {% if student_group %}
+        {{ student_group }},
+    {% else %}
+        Нет группы,
+    {% endif %}
+
+    {% if student_course %}
+        {{ student_course }} курс,
+    {% else %}
+        Курс не указан,
+    {% endif %}
+    2024
     </footer>
 </body>
 </html>
