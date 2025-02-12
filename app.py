@@ -475,5 +475,13 @@ def error_500():
 def internal_server_error(err):
     return "Ошибка 500: Внутренняя ошибка сервера. Пожалуйста, повторите попытку позже.", 500
 
+@app.route('/lab2/a')
+def a():
+    return 'Без слеша'
+
+@app.route('/lab2/a/')
+def a2():
+    return 'Со слешем'
+
 if __name__ == '__main__':
     app.run(debug=True)
