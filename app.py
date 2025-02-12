@@ -1,4 +1,4 @@
-from flask import Flask, url_for, redirect, abort
+from flask import Flask, url_for, redirect, abort, render_template
 from werkzeug.exceptions import HTTPException
 
 class PaymentRequired(HTTPException):
@@ -506,6 +506,12 @@ def add_flower(name):
     </body>
 </html>
 '''
+
+@app.route('/lab2/example')
+def example(name):
+    return render_template('exapmple.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
