@@ -508,8 +508,9 @@ def add_flower(name):
 '''
 
 @app.route('/lab2/example')
-def example(name):
-    return render_template('exapmple.html')
+def example():
+    name = 'Мартынов Александр'
+    return render_template('example.html', name=name)
 
 
 
