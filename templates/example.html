@@ -15,33 +15,46 @@
 
 <body>
     <header>
-        WEB-программирование, часть 2. Лабораторная работа №2
+        WEB-программирование, часть 2. {% if lab_number %}Лабораторная работа {{ lab_number }}{% endif %}
     </header>
     
     <main>
-        Основной контент
+        <h1>Вычисления</h1>
+        <ul>
+            <li>5 + 2 = {{ 5 + 2 }}</li>
+            <li>11 × 28 = {{ 11 * 28 }}</li>
+            <li>3258 - 759 = {{ 3258 - 759 }}</li>
+            <li>8452 / 793 = {{ 8452 / 793 }}</li>
+            <li>45<sup>8</sup> = {{ 45 ** 8 }}</li>
+        </ul>
+        <h1>Фрукты</h1>
+        <ul>
+            {% for f in fruits %}
+                <li>{{ loop.index }} - {{ f.name }}: {{ f.price }} &#8381</li>
+            {% endfor %}
+        </ul>
     </main>
 
     <footer>
         &copy;
         {% if name %}
-        {{ name }},
-    {% else %}
-        Аноним,
-    {% endif %}
+            {{ name }},
+        {% else %}
+            Аноним,
+        {% endif %}
 
-    {% if student_group %}
-        {{ student_group }},
-    {% else %}
-        Нет группы,
-    {% endif %}
+        {% if student_group %}
+            {{ student_group }},
+        {% else %}
+            Нет группы,
+        {% endif %}
 
-    {% if student_course %}
-        {{ student_course }} курс,
-    {% else %}
-        Курс не указан,
-    {% endif %}
-    2024
+        {% if student_course %}
+            {{ student_course }} курс,
+        {% else %}
+            Курс не указан,
+        {% endif %}
+        2024
     </footer>
 </body>
 </html>
