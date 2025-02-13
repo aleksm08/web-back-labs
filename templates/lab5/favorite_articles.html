@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Избранные статьи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Избранные статьи</h1>
+        <a href="{{ url_for('lab5.lab') }}">Вернуться в меню</a>
+    </header>
+    <main>
+        {% if articles %}
+            <ul>
+                {% for article in articles %}
+                    <li>
+                        <h3>{{ article['title'] }}</h3>
+                        <p>{{ article['article_text'] }}</p>
+                        <small>Автор: {{ article['login'] }}</small>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас нет избранных статей.</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>© 2024</p>
+    </footer>
+</body>
+</html>

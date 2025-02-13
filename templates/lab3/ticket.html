@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Ваш железнодорожный билет</h2>
+    <div class="ticket-info">
+        <p><strong>ФИО пассажира:</strong> {{ fio }}</p>
+        <p><strong>Возраст:</strong> {{ age }}</p>
+        <p><strong>Полка:</strong> {{ bunk }}</p>
+        <p><strong>С бельём:</strong> {{ 'Да' if bedding else 'Нет' }}</p>
+        <p><strong>С багажом:</strong> {{ 'Да' if baggage else 'Нет' }}</p>
+        <p><strong>Пункт выезда:</strong> {{ departure }}</p>
+        <p><strong>Пункт назначения:</strong> {{ destination }}</p>
+        <p><strong>Дата поездки:</strong> {{ date }}</p>
+        <p><strong>Страховка:</strong> {{ 'Да' if insurance else 'Нет' }}</p>
+        <p><strong>Стоимость:</strong> {{ price }} рублей</p>
+        <p><strong>Тип билета:</strong> {{ 'Детский' if age < 18 else 'Взрослый' }}</p>
+    </div>
+
+    <style>
+        .ticket-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .ticket-info p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .ticket-info strong {
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}

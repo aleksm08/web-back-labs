@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Меню</h2>
+    <ul>
+        <li><a href="{{ url_for('lab3.set_cookie') }}">Установить куки</a></li>
+        <li><a href="{{ url_for('lab3.clear_cookies') }}">Очистить куки</a></li>
+        <li><a href="{{ url_for('lab3.form1') }}">Форма</a></li>
+        <li><a href="{{ url_for('lab3.order') }}">Заказ напитка</a></li>
+        <li><a href="{{ url_for('lab3.settings') }}">Настройки отображения</a></li>
+        <li><a href="{{ url_for('lab3.clear_all_cookies') }}">Очистить все куки</a></li>
+        <li><a href="{{ url_for('lab3.ticket') }}">Железнодорожный билет</a></li>
+        <li><a href="{{ url_for('lab3.search') }}">Поиск телефонов</a></li>
+    </ul>
+
+    <h2>Приветствие</h2>
+    {% if name %}
+        <p>Привет, <span style="color: {{ name_color }};">{{ name }}</span>!</p>
+    {% else %}
+        <p>Привет, Анонимус!</p>
+    {% endif %}
+    <p>Возраст: {{ age }}</p>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Деление чисел - Лабораторная №4</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lab1/lab1.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Лабораторная работа №4: Деление чисел</h1>
+    </header>
+
+    <main class="content">
+        <section class="calculator">
+            <h2>Введите числа для деления</h2>
+            <form method="post" action="{{ url_for('lab4.div_form') }}" class="calc-form">
+                <div class="form-group">
+                    <label for="x1">Число 1:</label>
+                    <input type="text" id="x1" name="x1" required pattern="^\d*[\.,]?\d*$" title="Пожалуйста, введите число." value="{{ x1 }}">
+                </div>
+                <div class="form-group">
+                    <label for="x2">Число 2:</label>
+                    <input type="text" id="x2" name="x2" required pattern="^\d*[\.,]?\d*$" title="Пожалуйста, введите число." value="{{ x2 }}">
+                </div>
+                <button type="submit" class="submit-button">=</button>
+            </form>
+            {% if error %}
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
+            {% elif result is not none %}
+                <div class="result-message">
+                    <p>Результат деления {{ x1 }} на {{ x2 }} равен:</p>
+                    <h2>{{ result }}</h2>
+                </div>
+            {% endif %}
+            <div class="links">
+                <a href="{{ url_for('lab4.lab4_main') }}" class="back-link">Вернуться в главное меню лабораторной №4</a>
+                <a href="{{ url_for('lab4.div_form') }}" class="back-link">Попробовать снова</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>ФИО: Афанасов Геракл Георгиевич</p>
+        <p>Группа: ФБИ-22</p>
+        <p>Год: 2023</p>
+    </footer>
+</body>
+</html>

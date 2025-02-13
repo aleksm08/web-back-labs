@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Заказ напитка</h2>
+    <form method="post" action="{{ url_for('lab3.order') }}">
+        <label for="drink">Выберите напиток:</label>
+        <select id="drink" name="drink" required>
+            <option value="coffee">Кофе (120 руб.)</option>
+            <option value="black-tea">Чёрный чай (80 руб.)</option>
+            <option value="green-tea">Зелёный чай (70 руб.)</option>
+        </select>
+        <br>
+        <label>
+            <input type="checkbox" name="milk"> Молоко (+30 руб.)
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" name="sugar"> Сахар (+10 руб.)
+        </label>
+        <br>
+        <button type="submit">Заказать</button>
+    </form>
+{% endblock %}

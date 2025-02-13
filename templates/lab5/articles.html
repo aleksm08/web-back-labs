@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статьи</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Статьи</h1>
+        <a href="{{ url_for('lab5.lab') }}">Вернуться в меню</a>
+    </header>
+    <main>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            {% for article in articles %}
+                <h2>{{ article['title'] }}</h2>
+                <blockquote>{{ article['article_text'] }}</blockquote>
+                <small>Автор: {{ article['login'] }}</small>
+                <form action="{{ url_for('lab5.delete_article', article_id=article['id']) }}" method="post">
+                    <button type="submit">Удалить</button>
+                </form>
+            {% endfor %}
+        {% endif %}
+    </main>
+    <footer>
+        <p>© 2024</p>
+    </footer>
+</body>
+</html>

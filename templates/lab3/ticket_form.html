@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Форма железнодорожного билета</h2>
+    <form method="post" action="{{ url_for('lab3.ticket') }}">
+        <div class="form-group">
+            <label for="fio">ФИО пассажира:</label>
+            <input type="text" id="fio" name="fio" required class="input-field">
+            {% if errors.fio %}
+                <span class="error">{{ errors.fio }}</span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" required class="input-field">
+            {% if errors.age %}
+                <span class="error">{{ errors.age }}</span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="bunk">Полка:</label>
+            <select id="bunk" name="bunk" required class="input-field">
+                <option value="lower">Нижняя</option>
+                <option value="upper">Верхняя</option>
+                <option value="lower_side">Нижняя боковая</option>
+                <option value="upper_side">Верхняя боковая</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="bedding"> С бельём
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="baggage"> С багажом
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="departure">Пункт выезда:</label>
+            <input type="text" id="departure" name="departure" required class="input-field">
+            {% if errors.departure %}
+                <span class="error">{{ errors.departure }}</span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="destination">Пункт назначения:</label>
+            <input type="text" id="destination" name="destination" required class="input-field">
+            {% if errors.destination %}
+                <span class="error">{{ errors.destination }}</span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="date">Дата поездки:</label>
+            <input type="date" id="date" name="date" required class="input-field">
+            {% if errors.date %}
+                <span class="error">{{ errors.date }}</span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label>
+                <input type="checkbox" name="insurance"> Нужна ли страховка
+            </label>
+        </div>
+        <button type="submit" class="btn">Заказать билет</button>
+    </form>
+
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-field {
+            width: 200px; /* Фиксированная ширина для всех полей ввода */
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+{% endblock %}

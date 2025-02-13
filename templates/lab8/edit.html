@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 8{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <h1>Редактирование статьи</h1>
+
+    <form action="/lab8/articles/edit/{{ article.id }}" method="post">
+        <div>
+            <label>
+                Название статьи: <input type="text" name="title" value="{{ article.title }}" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Текст статьи: <textarea name="article_text" required>{{ article.article_text }}</textarea>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Публичная: <input type="checkbox" name="is_public" value="1" {% if article.is_public %}checked{% endif %}>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                Избранная: <input type="checkbox" name="is_favorite" value="1" {% if article.is_favorite %}checked{% endif %}>
+            </label>
+        </div>
+
+        <button type="submit">Сохранить</button>
+        <div class="error">{{ error }}</div>
+    </form>
+
+    <a href="/lab8/" class="back-button">Назад</a>
+{% endblock %}

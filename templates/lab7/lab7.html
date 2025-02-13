@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 7{% endblock %}
+
+{% block script %}
+<script src="{{ url_for('static', filename='lab7/main.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <h1>Список фильмов</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Название (рус.)</th>ч
+                <th>Оригинальное название</th>
+                <th>Год</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody id="film-list"></tbody>
+    </table>
+
+    <button class="add-film" onclick="addFilm()">Добавить фильм</button>
+
+    <div class="modal">
+        <input type="hidden" id="id">
+        <label>Название (рус.): <input type="text" id="title-ru"></label><br>
+        <label>Оригинальное название: <input type="text" id="title"></label><br>
+        <label>Год: <input type="number" id="year"></label><br>
+        <label>Описание: <textarea id="description"></textarea></label><br>
+        <button onclick="sendFilm()">Сохранить</button>
+        <button onclick="cancel()">Отмена</button>
+    </div>
+{% endblock %}
+

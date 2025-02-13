@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <a href="/" style="color: #4a90e2; text-decoration: none;">Главное меню</a>
+        <h1>WEB-программирование, часть 2. Лабораторная работа 4</h1>
+    </header>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="{{ url_for('lab4.sum_page') }}">Калькулятор сложения</a></li>
+            <li><a href="{{ url_for('lab4.subtract_page') }}">Калькулятор вычитания</a></li>
+            <li><a href="{{ url_for('lab4.multiply_page') }}">Калькулятор умножения</a></li>
+            <li><a href="{{ url_for('lab4.power_page') }}">Калькулятор возведения в степень</a></li>
+            <li><a href="{{ url_for('lab4.div_page') }}">Калькулятор деления</a></li>
+            <li><a href="{{ url_for('lab4.tree') }}">Счётчик деревьев</a></li>
+            <li><a href="{{ url_for('lab4.login') }}">Авторизация</a></li>
+            <li><a href="{{ url_for('lab4.register') }}">Регистрация</a></li>
+            <li><a href="{{ url_for('lab4.user_list') }}">Список пользователей</a></li>
+            <li><a href="{{ url_for('lab4.fridge') }}">Холодильник</a></li>
+            <li><a href="{{ url_for('lab4.order_grain') }}">Заказ зерна</a></li>
+            {% if session.get('authorized') %}
+                <li><a href="{{ url_for('lab4.logout') }}">Выйти</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <footer>  
+        © аноним, неизвестная группа, неизвестный курс, 2024
+    </footer>
+</body>
+</html>

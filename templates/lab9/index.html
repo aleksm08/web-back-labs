@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 9{% endblock %}
+{% block main %}
+    <style>
+        body {
+            background-image: url('/static/lab9/christmas1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .text-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+            color: black;
+        }
+        h1 {
+            color: #d32f2f; /* Красный цвет для заголовка */
+        }
+        a {
+            color: #d32f2f;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <div class="text-box">
+        <h1>Поздравление с Новым Годом</h1>
+        <a href="/lab9/step1_name">Начать</a>
+    </div>
+{% endblock %}

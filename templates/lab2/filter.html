@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтры в Jinja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        h1, h2 {
+            color: #4a90e2;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Пример использования фильтров в Jinja</h1>
+
+        <h2>Исходная фраза:</h2>
+        <p>{{ phrase }}</p>
+
+        <h2>Фильтр title:</h2>
+        <p>{{ phrase | title }}</p>
+
+        <h2>Фильтр striptags:</h2>
+        <p>{{ phrase | striptags }}</p>
+
+        <h2>Фильтр safe:</h2>
+        <p>{{ phrase | safe }}</p>
+
+        <h2>Фильтр replace:</h2>
+        <p>{{ phrase | replace("сколько", "много") | replace("нам", "тут") }}</p>
+
+        <h2>Фильтр upper:</h2>
+        <p>{{ phrase | upper }}</p>
+
+        <h2>Фильтр striptags + reverse:</h2>
+        <p>{{ phrase | striptags | reverse }}</p>
+    </div>
+</body>
+</html>

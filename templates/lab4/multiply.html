@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Умножение</title>
+</head>
+<body>
+    <h1>Умножение</h1>
+    <form method="POST">
+        <input type="text" name="num1" placeholder="Введите первое число">
+        <input type="text" name="num2" placeholder="Введите второе число">
+        <button type="submit">Посчитать</button>
+    </form>
+    {% if result is not none %}
+        <p>Результат: {{ result }}</p>
+    {% endif %}
+    <a href="/lab4/lab4">Назад</a>
+</body>
+</html>

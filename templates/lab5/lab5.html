@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа 5</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <a href="/" style="color: #4a90e2; text-decoration: none;">Главное меню</a>
+        <h1>WEB-программирование, часть 2. Лабораторная работа 5</h1>
+        <h1>База знаний</h1>
+        <p>Имя пользователя: 
+            {% if session.get('login') %}  <!-- Используем 'login' вместо 'username' -->
+                {{ session.get('login') }}
+            {% else %}
+                Anonymous
+            {% endif %}
+        </p>
+    </header>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="{{ url_for('lab5.login') }}">Вход</a></li>
+            <li><a href="{{ url_for('lab5.register') }}">Регистрация</a></li>
+            <li><a href="{{ url_for('lab5.list_articles') }}">Список статей</a></li>
+            <li><a href="{{ url_for('lab5.create_article') }}">Создать статью</a></li>
+            <li><a href="{{ url_for('lab5.list_users') }}">Пользователи</a></li>
+            <li><a href="{{ url_for('lab5.public_articles') }}">Публичные статьи</a></li>
+            <li><a href="{{ url_for('lab5.favorite_articles') }}">Избранные статьи</a></li>
+            <li><a href="{{ url_for('lab5.logout') }}">Выход</a></li>
+        </ul>
+    </div>
+    <footer>
+        © 
+        {% if session.get('login') %}  <!-- Используем 'login' вместо 'username' -->
+            {{ session.get('login') }}
+        {% else %}
+            Anonymous
+        {% endif %}, 
+        неизвестная группа, неизвестный курс, 2024
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Настройки отображения</h2>
+    <form method="post">
+        <label for="color">Цвет текста:</label>
+        <input type="color" id="color" name="color" value="{{ color or '' }}">
+        <br>
+        <label for="background_color">Цвет фона:</label>
+        <input type="color" id="background_color" name="background_color" value="{{ background_color or '' }}">
+        <br>
+        <label for="font_size">Размер шрифта:</label>
+        <input type="number" id="font_size" name="font_size" value="{{ font_size or '' }}">
+        <br>
+        <button type="submit">ОК</button>
+    </form>
+{% endblock %}

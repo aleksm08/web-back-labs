@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 2{% endblock %}
+
+{% block lab_header %}Лабораторная работа 2{% endblock %}
+
+{% block content %}
+    <h2>Примеры работы с цветами</h2>
+    <ul>
+        <li><a href="{{ url_for('lab2.add_flower', name='Новый цветок') }}">Добавить цветок</a></li>
+        <li><a href="{{ url_for('lab2.list_flowers') }}">Посмотреть все цветы</a></li>
+        <li><a href="{{ url_for('lab2.flower', flower_id=0) }}">Посмотреть конкретный цветок</a></li>
+        <li><a href="{{ url_for('lab2.clear_flowers') }}">Очистить список цветов</a></li>
+    </ul>
+
+    <h2>Примеры работы с фильтрами</h2>
+    <ul>
+        <li><a href="{{ url_for('lab2.filter_example') }}">Пример использования фильтров</a></li>
+    </ul>
+
+    <h2>Вычисления</h2>
+    <ul>
+        <li><a href="{{ url_for('lab2.calc_default') }}">Калькулятор</a></li>
+    </ul>
+
+    <h2>Список фруктов</h2>
+    <ul>
+        {% for fruit in fruits %}
+            <li>{{ loop.index }}. {{ fruit.name }} - {{ fruit.price }} ₽</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Список ягод</h2>
+    <ul>
+        <li><a href="{{ url_for('lab2.list_berries') }}">Посмотреть список ягод</a></li>
+    </ul>
+
+    <h2>Список книг</h2>
+    <ul>
+        <li><a href="{{ url_for('lab2.list_books') }}">Посмотреть список книг</a></li>
+    </ul>
+{% endblock %}

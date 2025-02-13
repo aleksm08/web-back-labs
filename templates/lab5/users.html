@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список пользователей</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Зарегистрированные пользователи</h1>
+        <a href="{{ url_for('lab5.lab') }}">Вернуться в меню</a>
+    </header>
+    <main>
+        <ul>
+            {% for user in users %}
+                <li>{{ user['login'] }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

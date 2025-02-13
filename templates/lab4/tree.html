@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счётчик деревьев</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <a href="/" style="color: #4a90e2; text-decoration: none;">Главное меню</a>
+        <h1>Счётчик деревьев</h1>
+    </header>
+    <div class="container">
+        <form method="post">
+            <button type="submit" name="operation" value="plant" {% if tree_count >= 10 %}disabled{% endif %}>Посадить дерево</button>
+            <button type="submit" name="operation" value="cut" {% if tree_count <= 0 %}disabled{% endif %}>Срубить дерево</button>
+        </form>
+        <p>Количество деревьев: {{ tree_count }}</p>
+    </div>
+    <footer>  
+        © аноним, неизвестная группа, неизвестный курс, 2024
+    </footer>
+</body>
+</html>

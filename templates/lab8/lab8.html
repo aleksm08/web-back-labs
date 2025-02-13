@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 8{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <h1>База знаний</h1>
+
+    <div>
+        <a href="/lab8/login">Вход</a>
+        <a href="/lab8/register">Регистрация</a>
+        <a href="/lab8/articles">Список статей</a>
+        <a href="/lab8/create">Создать статью</a>
+        {% if current_user.is_authenticated %}
+            <a href="/lab8/logout">Выйти</a>
+        {% endif %}
+    </div>
+
+    <div>
+        Пользователь: {{ user }}
+    </div>
+{% endblock %}

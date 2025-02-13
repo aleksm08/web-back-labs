@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Холодильник</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('lab4.lab4_main') }}">Назад</a>
+        <h1>Настройка температуры холодильника</h1>
+    </header>
+    <div class="container">
+        <form method="post">
+            <label for="temperature">Температура (°С):</label>
+            <input type="number" step="0.1" id="temperature" name="temperature" required>
+            <button type="submit">Установить температуру</button>
+        </form>
+
+        {% if message %}
+            <p>{{ message }}</p>
+            <p>{{ snowflakes }}</p>
+        {% endif %}
+    </div>
+    <footer>  
+        © аноним, неизвестная группа, неизвестный курс, 2024
+    </footer>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block lab_header %}Лабораторная работа 3{% endblock %}
+
+{% block content %}
+    <h2>Оплата заказа</h2>
+    <p>Сумма к оплате: {{ price }} рублей</p>
+    <form method="post" action="{{ url_for('lab3.pay') }}">
+        <label for="card">Номер карты:</label>
+        <input type="text" id="card" name="card" pattern="\d{16}" required>
+        <br>
+        <label for="name">Имя владельца карты:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+        <br>
+        <input type="hidden" name="price" value="{{ price }}">
+        <button type="submit">Оплатить</button>
+        <a href="{{ url_for('lab3.order') }}">Отказаться</a>
+    </form>
+{% endblock %}

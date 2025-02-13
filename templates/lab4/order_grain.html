@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ зерна</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Заказ зерна</h1>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <label for="grain_type">Выберите зерно:</label>
+        <select name="grain_type" required>
+            <option value="ячмень">Ячмень</option>
+            <option value="овёс">Овёс</option>
+            <option value="пшеница">Пшеница</option>
+            <option value="рожь">Рожь</option>
+        </select>
+        <br>
+        <label for="weight">Укажите вес (в тоннах):</label>
+        <input type="number" name="weight" required min="0.01" step="0.01">
+        <br>
+        <button type="submit">Заказать</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+        <p>Вы заказали: {{ weight }} т {{ grain_type }}.</p>
+        <p>Сумма к оплате: {{ total_price }} руб.</p>
+    {% endif %}
+    <footer>
+        © аноним, неизвестная группа, неизвестный курс, 2024
+    </footer>
+</body>
+</html>

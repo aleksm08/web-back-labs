@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор деления</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор деления</h1>
+        <form method="post">
+            <label for="num1">Число 1:</label>
+            <input type="text" name="num1" id="num1">
+            <br>
+            <label for="num2">Число 2:</label>
+            <input type="text" name="num2" id="num2">
+            <br>
+            <input type="submit" value="Посчитать" class="button">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% elif result is not none %}
+            <p>Результат: {{ result }}</p>
+        {% endif %}
+        <a href="{{ url_for('lab4.lab4_main') }}" class="back-link">Назад</a>
+    </div>
+</body>
+</html>
+ 

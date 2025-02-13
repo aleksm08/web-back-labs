@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Список цветов</h1>
+<ul>
+    {% for flower in flowers %}
+    <li>
+        {{ flower.name }} - {{ flower.price }} руб.
+        <a href="{{ url_for('lab2.flower', flower_id=loop.index0) }}">Подробнее</a>
+        <a href="{{ url_for('lab2.delete_flower', flower_id=loop.index0) }}">Удалить</a>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('lab2.add_flower') }}">Добавить цветок</a>
+<a href="{{ url_for('lab2.clear_flowers') }}">Очистить список цветов</a>
+{% endblock %}
